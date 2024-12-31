@@ -16,7 +16,7 @@ const BingoBoard = () => {
   return (
     <div>
       <div>
-        <Board combination={data.map((el) => el.name)} />
+        <Board combination={data.map((el) => el.id)} />
       </div>
     </div>
   );
