@@ -1,8 +1,21 @@
-# React App Template
+# Features
 
-## Start project
+## Master game
 
-Change files:
+Open Spotify with a predeterminate bingo list.
 
-- public/index.html
-- package.json
+## Game board
+
+Randomly songs to play.
+
+Still missing:
+
+- Connect to Spotify and get songs from a list (API with .env.local)
+
+# Still missing
+
+- Login
+- Admin a playlist
+- Admin a game
+- Database
+- Cache user data (game && bingo board)
