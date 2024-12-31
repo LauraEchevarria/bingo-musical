@@ -1,0 +1,10 @@
+.button {
+  background-color: color-mix(in srgb, var(--purple-000), transparent 70%);
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+.primary {
+  border: 2px solid var(--purple-200);
+  color: var(--purple-200);
+}

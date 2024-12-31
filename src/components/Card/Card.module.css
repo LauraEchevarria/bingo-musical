@@ -1,0 +1,24 @@
+.box {
+  border-radius: 20px;
+  width: 120px;
+  height: 150px; /* 1 1 2 3 5 8 13 21 */
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blue-100 {
+  background-color: var(--blue-100);
+  color: var(--blue-900);
+}
+
+.default {
+  background-color: var(--gray-500);
+  color: var(--purple-200);
+
+  &:hover {
+    background-color: var(--gray-400);
+    color: var(--black);
+  }
+}

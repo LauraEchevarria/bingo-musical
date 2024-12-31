@@ -1,0 +1,21 @@
+.board {
+  width: fit-content;
+  background-color: var(--blue-800);
+  padding: 10px;
+  border-radius: 5px;
+
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  background-color: var(--blue-100);
+  color: var(--blue-900);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
