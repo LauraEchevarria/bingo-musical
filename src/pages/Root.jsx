@@ -12,16 +12,10 @@ const TITLES = {
 };
 
 const Root = () => {
-  let [logged, setLogged] = useState(null);
   let location = useLocation();
   let title = TITLES[location.pathname];
 
-  useEffect(() => {
-    setLogged(getIsLogged());
-  }, []);
-
   const renderContent = () => {
-    if (logged == null) return <Text>Loading...</Text>;
     return (
       <>
         <header>

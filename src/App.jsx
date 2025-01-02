@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 import Root from './pages/Root';
 import Home from './pages/Home/Home';
@@ -9,7 +9,7 @@ import BingoBoard, {
 import Admin from './pages/Admin/Admin';
 import Master from './pages/Master/Master';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Root />,
