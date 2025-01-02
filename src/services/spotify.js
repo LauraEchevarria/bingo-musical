@@ -1,15 +1,8 @@
-//const SPOTIFY_CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-//const SPOTIFY_CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
-
 export const getPlaylist = (playlist_id) => {
-  let existsID = process.env.REACT_APP_SPOTIFY_CLIENT_ID
-    ? 'EXISTS'
-    : 'NOT exists';
-  let existsSecret = process.env.REACT_APP_SPOTIFY_CLIENT_ID
-    ? 'EXISTS'
-    : 'NOT exists';
-  console.log('SPOTIFY_CLIENT_ID', existsID);
-  console.log('SPOTIFY_CLIENT_SECRET', existsSecret);
+  //let CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+  //let CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+  //console.log('SPOTIFY_CLIENT_ID', CLIENT_ID);
+  //console.log('SPOTIFY_CLIENT_SECRET', CLIENT_SECRET);
 
   return [
     { id: 1, name: 'Song 1' },
