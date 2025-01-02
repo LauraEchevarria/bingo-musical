@@ -17,7 +17,6 @@ jobs:
 
       - name: Test
         run: |
-          echo: "::add-mask::${{ secrets.SPOTIFY_CLIENT_ID }}"
           echo: "CLIENT ID: ${{ secrets.SPOTIFY_CLIENT_ID }}"
 
       - name: Deploy 🚀
