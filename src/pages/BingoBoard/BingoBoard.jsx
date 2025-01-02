@@ -9,7 +9,6 @@ import { generateRandomArray } from '../../utils/generateMatrix';
 //import classes from './BingoBoard.module.css';
 
 const BingoBoard = () => {
-  console.log('BINGO BOARD');
   const data = useLoaderData();
 
   if (data.status === 400) return <Text>{data.message}</Text>;
