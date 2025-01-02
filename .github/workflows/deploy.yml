@@ -15,18 +15,15 @@ jobs:
           npm ci
           npm run build
 
-      - name: Test
-        run: |
-          echo: "CLIENT ID: ${{ secrets.SPOTIFY_CLIENT_ID }}"
-
       - name: Deploy 🚀
         run: |
           npm ci
           npm run build
-        env:
-          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
-          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build # The folder the action should deploy.
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
