@@ -3,9 +3,8 @@
 
 export const getPlaylist = (playlist_id) => {
   let existsSecret = process.env.SPOTIFY_CLIENT_ID ? 'EXISTS' : 'NOT exists';
-  console.log('SECRET: ', existsSecret);
-  console.log('TEST', process.env.REACT_APP_TEST);
   console.log('TEST ON ACTIONS', process.env.REACT_APP_TESTING);
+  console.log('TEST ON ACTIONS', process.env.SPOTIFY_CLIENT_ID);
   return [
     { id: 1, name: 'Song 1' },
     { id: 2, name: 'Song 2' },
