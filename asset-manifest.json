@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bingo-musical/static/css/main.caea4c5c.css",
+    "main.js": "/bingo-musical/static/js/main.828f3ba6.js",
+    "index.html": "/bingo-musical/index.html",
+    "main.caea4c5c.css.map": "/bingo-musical/static/css/main.caea4c5c.css.map",
+    "main.828f3ba6.js.map": "/bingo-musical/static/js/main.828f3ba6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.caea4c5c.css",
+    "static/js/main.828f3ba6.js"
+  ]
+}
