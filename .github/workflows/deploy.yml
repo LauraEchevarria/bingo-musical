@@ -10,10 +10,10 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Install and Build 🔧
-        run: |
-          npm ci
-          npm run build
+      #- name: Install and Build 🔧
+      # run: |
+      #  npm ci
+      # npm run build
 
       - name: Deploy 🚀
         env:
@@ -27,6 +27,3 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build # The folder the action should deploy.
-        #env:
-        #SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
-        #SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
