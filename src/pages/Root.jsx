@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import HeaderNav from '../components/Layout/HeaderNav/HeaderNav';
 import Text from '../components/Text/Text';
-import { getIsLogged } from '../utils/auth';
 
 const TITLES = {
   '/': 'Home',
