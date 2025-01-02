@@ -1,9 +1,9 @@
 name: Deploy App
 
-on: 
+on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   deploy:
@@ -21,14 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Setup environment variables
+      - name: Build and deploy
+        run: |
+          npm run deploy
         env:
           REACT_APP_SPOTIFY_CLIENT_ID: ${{ secrets.REACT_APP_SPOTIFY_CLIENT_ID }}
           REACT_APP_SPOTIFY_CLIENT_SECRET: ${{ secrets.REACT_APP_SPOTIFY_CLIENT_SECRET }}
-
-      - name: Build and deploy
-        env:
-          CI: true # Evita advertencias en React sobre entornos de CI/CD
-        run: |
-          npm run deploy
-  
