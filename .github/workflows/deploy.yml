@@ -16,6 +16,8 @@ jobs:
           npm run build
 
       - name: Deploy 🚀
+        env:
+          REACT_APP_TESTING: ${{ secrets.REACT_APP_TEST }}
         run: |
           npm ci
           npm run build
@@ -24,6 +26,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build # The folder the action should deploy.
-        env:
-          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
-          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+        #env:
+        #SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+        #SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
