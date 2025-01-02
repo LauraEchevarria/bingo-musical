@@ -1,31 +1,20 @@
-name: Deploy
-on:
-  push:
-    branches:
-      - main
+name: Build and Deploy
+on: [push]
+permissions:
+  contents: write
 jobs:
-  predeploy:
-    name: Predeploy
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Pages
-        if: github.ref == 'refs/heads/main'
-        uses: actions/configure-pages@v3
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
 
-  deploy:
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run build
 
-    permissions:
-      pages: write
-      id-token: write
-
-    environment:
-      # environment created automatically by GitHub
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      - name: Deploy 🚀
+        run: |
+          npm run deploy
