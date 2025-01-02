@@ -6,7 +6,7 @@ const WIDTH = {
   large: '40px',
 };
 
-const Icon = ({ type, color, size, text }) => {
+const Icon = ({ type, size, text, ...props }) => {
   if (!Object.keys(WIDTH).includes(size)) size = 'small';
 
   if (text) {
@@ -16,7 +16,7 @@ const Icon = ({ type, color, size, text }) => {
   // eslint-disable-next-line default-case
   switch (type) {
     case 'home':
-      iconSvg = <Home size={WIDTH[size]} color={color} />;
+      iconSvg = <Home size={WIDTH[size]} {...props} />;
       break;
   }
 

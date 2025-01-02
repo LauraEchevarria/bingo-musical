@@ -19,7 +19,9 @@ const HeaderNav = ({ showHome }) => {
 
   return (
     <div className={classes.header}>
-      <Link to="/">{showHome && <Icon type="home" size="medium" />}</Link>
+      <Link to="/">
+        {showHome && <Icon type="home" size="medium" fill="#fff" />}
+      </Link>
       {loginLogic && renderLoginButton()}
     </div>
   );
