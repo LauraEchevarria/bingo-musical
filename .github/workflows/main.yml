@@ -27,8 +27,10 @@ jobs:
           git config --global user.name "LauraEchevarria"
 
       - name: Build and deploy
-        run: |
-          npm run deploy
         env:
+          CI: true
           REACT_APP_SPOTIFY_CLIENT_ID: ${{ secrets.REACT_APP_SPOTIFY_CLIENT_ID }}
           REACT_APP_SPOTIFY_CLIENT_SECRET: ${{ secrets.REACT_APP_SPOTIFY_CLIENT_SECRET }}
+        run: |
+          npm run build
+          npm run deploy
