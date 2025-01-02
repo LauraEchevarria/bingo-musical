@@ -17,8 +17,8 @@ jobs:
 
       - name: Deploy 🚀
         env:
-          REACT_APP_TESTING: ${{ secrets.REACT_APP_TEST }}
-          REACT_APP_SPOTIFY_CLIENT_ID: ${{ secrets.REACT_APP_SPOTIFY_CLIENT_ID }}
+          REACT_APP_SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          REACT_APP_SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
         run: |
           npm ci
           npm run build
