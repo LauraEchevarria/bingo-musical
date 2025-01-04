@@ -3,6 +3,7 @@ const CLIENT_SECRET = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
 const SPOTIFY_URL = 'https://api.spotify.com/v1';
 
 const auth = () => {
+  if (!CLIENT_ID || !CLIENT_SECRET) throw Error('Invalid SPOTIFY keys');
   // @todo token on cache
   return fetch('https://accounts.spotify.com/api/token', {
     method: 'post',
@@ -20,6 +21,7 @@ export const getPlaylist = (id) => {
   return new Promise((resolve, reject) => {
     auth()
       .then((token) => {
+        if (!token) throw new Error('No token found');
         return fetch(url, {
           method: 'get',
           headers: {
