@@ -1,6 +1,7 @@
 .board {
   width: fit-content;
   background-color: var(--blue-800);
+  margin: 0 50px;
   padding: 10px;
   border-radius: 5px;
 
@@ -19,4 +20,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.checked {
+  background-color: var(--green-500);
 }

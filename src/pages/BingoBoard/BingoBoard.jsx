@@ -17,7 +17,7 @@ const BingoBoard = () => {
   return (
     <div>
       <div>
-        <Board combination={data.map((el) => el.name)} />
+        <Board data={data} />
       </div>
     </div>
   );
@@ -31,8 +31,9 @@ export const loader = async () => {
 
   return getPlaylist(game.list_id)
     .then((res) => {
-      let songs = res.tracks?.items;
-      console.log('songs', songs);
+      let songs = res.tracks?.items.map((el, key) => {
+        return { id: key, name: el.track?.name };
+      });
       if (!songs) return { status: 400, message: 'Empty playlist' };
       if (songs?.length < game?.length)
         return { status: 400, message: 'Invalid playlist, songs not enough' };
