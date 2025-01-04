@@ -10,8 +10,9 @@
 }
 
 .cell {
-  width: 30px;
-  height: 30px;
+  width: auto;
+  height: auto;
+  padding: 10px;
   background-color: var(--blue-100);
   color: var(--blue-900);
   border-radius: 5px;

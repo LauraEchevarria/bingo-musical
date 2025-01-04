@@ -11,12 +11,13 @@ import { generateRandomArray } from '../../utils/generateMatrix';
 const BingoBoard = () => {
   const data = useLoaderData();
 
-  if (data.status === 400) return <Text>{data.message}</Text>;
+  if (data.status === 400 || data.status === 500)
+    return <Text color="white">{data.message}</Text>;
 
   return (
     <div>
       <div>
-        <Board combination={data.map((el) => el.id)} />
+        <Board combination={data.map((el) => el.name)} />
       </div>
     </div>
   );
@@ -24,14 +25,20 @@ const BingoBoard = () => {
 export default BingoBoard;
 
 export const loader = async () => {
-  let playlist_id = 2; // @todo GET id
-  let game = getGame(playlist_id);
+  let game_id = 2; // @todo GET id
+  let game = getGame(game_id);
   if (game?.length < 1) return { status: 400, message: 'Invalid game' };
 
-  let songs = getPlaylist();
-  if (songs?.length < game?.length)
-    return { status: 400, message: 'Invalid playlist, songs not enough' };
-
-  let randomSongs = generateRandomArray(game.length, songs);
-  return randomSongs;
+  return getPlaylist(game.list_id)
+    .then((res) => {
+      let songs = res.tracks?.items;
+      console.log('songs', songs);
+      if (!songs) return { status: 400, message: 'Empty playlist' };
+      if (songs?.length < game?.length)
+        return { status: 400, message: 'Invalid playlist, songs not enough' };
+      return generateRandomArray(game.length, songs);
+    })
+    .catch((err) => {
+      return { status: 500, message: 'Spotify connection failed: ' + err };
+    });
 };

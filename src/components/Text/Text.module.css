@@ -5,5 +5,13 @@
 }
 
 .default {
+  color: white;
+}
+
+.white {
+  color: white;
+}
+
+.black {
   color: black;
 }
