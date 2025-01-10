@@ -1,0 +1,15 @@
+.cell {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background-color: var(--blue-100);
+  color: var(--blue-900);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checked {
+  background-color: var(--green-500);
+}
