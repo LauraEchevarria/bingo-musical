@@ -32,6 +32,7 @@ const BingoBoard = () => {
     }
     return data.map((el, key) => {
       return {
+        key: key,
         col: key % COLS,
         row: Math.floor(key / COLS),
         name: el.name,
@@ -44,7 +45,7 @@ const BingoBoard = () => {
   return (
     <div>
       <div>
-        <Board data={formatCombination(data)} />
+        <Board combination={formatCombination(data)} />
       </div>
     </div>
   );
