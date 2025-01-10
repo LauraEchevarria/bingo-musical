@@ -5,16 +5,13 @@ import BoardCell from './BoardCell';
 
 const Board = ({ data }) => {
   // @todo refactor
-  let [combination, setCombination] = useState(
-    data?.map((el) => {
-      return { ...el };
-    }),
-  );
+  let [combination, setCombination] = useState(data);
+  console.log('con', combination);
 
-  const onPressCell = (id) => {
+  const onPressCell = (key) => {
     setCombination((prev) =>
-      prev.map((el, key) =>
-        key === id ? { ...el, checked: !el.checked } : el,
+      prev.map((el, index) =>
+        index === key ? { ...el, checked: !el.checked } : el,
       ),
     );
   };

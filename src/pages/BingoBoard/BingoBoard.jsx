@@ -22,6 +22,7 @@ const BingoBoard = () => {
     });
     const ROWS = Math.ceil(data.length / COLS);
     const TOTAL_SIZE = COLS * ROWS;
+    // Set random empty values if needed
     while (data.length < TOTAL_SIZE) {
       let random_position = Math.ceil(Math.random() * TOTAL_SIZE) - 1;
       data.splice(random_position, 0, {
@@ -29,8 +30,15 @@ const BingoBoard = () => {
         blocked: true,
       });
     }
-
-    return data;
+    return data.map((el, key) => {
+      return {
+        col: key % COLS,
+        row: Math.floor(key / COLS),
+        name: el.name,
+        blocked: !!el.blocked,
+        checked: false,
+      };
+    });
   };
 
   return (
