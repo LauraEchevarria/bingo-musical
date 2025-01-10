@@ -8,16 +8,35 @@ import { generateRandomArray } from '../../utils/generateMatrix';
 
 //import classes from './BingoBoard.module.css';
 
+const COLS = 4;
+
 const BingoBoard = () => {
   const data = useLoaderData();
 
   if (data.status === 400 || data.status === 500)
     return <Text color="white">{data.message}</Text>;
 
+  const formatCombination = (data) => {
+    data = data.map((el) => {
+      return { ...el, checked: false };
+    });
+    const ROWS = Math.ceil(data.length / COLS);
+    const TOTAL_SIZE = COLS * ROWS;
+    while (data.length < TOTAL_SIZE) {
+      let random_position = Math.ceil(Math.random() * TOTAL_SIZE) - 1;
+      data.splice(random_position, 0, {
+        name: '-',
+        blocked: true,
+      });
+    }
+
+    return data;
+  };
+
   return (
     <div>
       <div>
-        <Board data={data} />
+        <Board data={formatCombination(data)} />
       </div>
     </div>
   );

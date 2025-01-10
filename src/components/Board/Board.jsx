@@ -1,34 +1,48 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import classes from './Board.module.css';
+import BoardCell from './BoardCell';
 
 const Board = ({ data }) => {
   // @todo refactor
   let [combination, setCombination] = useState(
-    data.map((el) => {
-      return { ...el, ckecked: false };
+    data?.map((el) => {
+      return { ...el };
     }),
   );
 
-  const onPressCell = (key) => {
+  const onPressCell = (id) => {
     setCombination((prev) =>
-      prev.map((el) => (el.id === key ? { ...el, ckecked: !el.ckecked } : el)),
+      prev.map((el, key) =>
+        key === id ? { ...el, checked: !el.checked } : el,
+      ),
+    );
+  };
+  const renderContent = () => {
+    return (
+      <ol className={classes['board-grid']}>
+        {combination.map((item, key) => (
+          <BoardCell
+            key={key}
+            blocked={item.blocked}
+            checked={item.checked}
+            onClick={() => onPressCell(key)}
+          >
+            {item.name}
+          </BoardCell>
+        ))}
+      </ol>
     );
   };
 
-  const renderContent = () => {
-    return combination.map((item) => (
-      <li
-        className={
-          item.ckecked ? `${classes.checked} ${classes.cell}` : classes.cell
-        }
-        key={item.id}
-        onClick={() => onPressCell(item.id)}
-      >
-        {item.name}
-      </li>
-    ));
-  };
-  return <ol className={classes.board}>{renderContent()}</ol>;
+  if (!combination) return;
+  return <div className={classes.content}>{renderContent()}</div>;
 };
 
 export default Board;
+
+Board.propTypes = {
+  data: PropTypes.array,
+  // Column number
+  size: PropTypes.number,
+};
