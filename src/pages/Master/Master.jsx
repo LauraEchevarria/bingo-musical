@@ -10,7 +10,7 @@ const Master = () => {
   const onConnectSpotifyHandler = () => {
     let game = getGame(2);
     if (game && game.list_id) {
-      let uri = `playlist/${game.list_id}?go=1&utm_medium=desktop`;
+      let uri = `playlist/${game.list_id}?si=random&play=true`;
       if (isMobile) {
         window.location.href = `spotify:${uri}`;
       } else {
