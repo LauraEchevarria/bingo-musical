@@ -1,10 +1,49 @@
+import React, { useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 import classes from './Home.module.css';
+import Input from '../../components/Input/Input';
+import { t } from '../../utils/strings';
+
+const loginLogic = false;
+
+const initialState = {
+  masterKey: { value: null, error: null },
+  gameKey: {
+    placeholder: t('game_placeholder'),
+    value: null,
+    error: t('error_5_characters'),
+  },
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'onChangeGameKey':
+      return {
+        ...state,
+        gameKey: { ...initialState.gameKey, value: action.value },
+      };
+    case 'onChangeMasterKey':
+      return {
+        ...state,
+        masterKey: { ...initialState.masterKey, value: action.value },
+      };
+    default:
+      return initialState;
+  }
+};
 
 const Home = () => {
-  const loginLogic = false;
+  const [state, dispatch] = useReducer(reducer, initialState);
   const navigate = useNavigate();
+
+  const handleGameKeyChange = (key) => {
+    dispatch({ type: 'onChangeGameKey', value: key });
+  };
+  const validateLength = (text) => {
+    if (text.length !== 5) return false;
+    return true;
+  };
 
   return (
     <div>
@@ -21,8 +60,18 @@ const Home = () => {
         <Card color="gray-600" onClick={() => navigate('/master')}>
           Master game
         </Card>
-        <Card color="green" onClick={() => navigate('/board')}>
+        <Card
+          color="green"
+          //onClick={() => navigate('/board')} @todo
+        >
           Play your board
+          <Input
+            placeholder={state.gameKey.placeholder}
+            value={state.gameKey.value}
+            onChangeValue={handleGameKeyChange}
+            validate={validateLength}
+            errorText={state.gameKey.error}
+          />
         </Card>
       </div>
     </div>

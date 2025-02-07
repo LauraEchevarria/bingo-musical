@@ -2,5 +2,10 @@
   "admin_connect_spotify": "Conectar con Spotify",
   "admin_spotify": "Conecta tu lista de Spotify para empezar a bailar!",
   "login": "Iniciar sesión",
-  "logout": "Cerrar sesión"
+  "logout": "Cerrar sesión",
+  "game_placeholder": "Escribe el PIN",
+  "master_placeholder": "Escribe el PIN",
+
+  "error_general": "Error",
+  "error_5_characters": "Debe tener 5 carácteres"
 }
