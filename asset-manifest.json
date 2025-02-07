@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/bingo-musical/static/css/main.0a8397a9.css",
-    "main.js": "/bingo-musical/static/js/main.b6ed0696.js",
+    "main.css": "/bingo-musical/static/css/main.cb0fc843.css",
+    "main.js": "/bingo-musical/static/js/main.6490e02f.js",
     "index.html": "/bingo-musical/index.html",
-    "main.0a8397a9.css.map": "/bingo-musical/static/css/main.0a8397a9.css.map",
-    "main.b6ed0696.js.map": "/bingo-musical/static/js/main.b6ed0696.js.map"
+    "main.cb0fc843.css.map": "/bingo-musical/static/css/main.cb0fc843.css.map",
+    "main.6490e02f.js.map": "/bingo-musical/static/js/main.6490e02f.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a8397a9.css",
-    "static/js/main.b6ed0696.js"
+    "static/css/main.cb0fc843.css",
+    "static/js/main.6490e02f.js"
   ]
 }
