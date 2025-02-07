@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 import classes from './Home.module.css';
 import Input from '../../components/Input/Input';
+import Button from '../../components/Button/Button';
 import { t } from '../../utils/strings';
 
 const loginLogic = false;
@@ -40,8 +41,11 @@ const Home = () => {
   const handleGameKeyChange = (key) => {
     dispatch({ type: 'onChangeGameKey', value: key });
   };
-  const validateLength = (text) => {
-    if (text.length !== 5) return false;
+  const validGameKey = (text) => {
+    // Validate length
+    if (text?.length !== 5) return false;
+    // Validate if exists
+    // @todo
     return true;
   };
 
@@ -60,18 +64,18 @@ const Home = () => {
         <Card color="gray-600" onClick={() => navigate('/master')}>
           Master game
         </Card>
-        <Card
-          color="green"
-          //onClick={() => navigate('/board')} @todo
-        >
+        <Card color="green">
           Play your board
           <Input
             placeholder={state.gameKey.placeholder}
             value={state.gameKey.value}
             onChangeValue={handleGameKeyChange}
-            validate={validateLength}
+            validate={validGameKey}
             errorText={state.gameKey.error}
           />
+          {validGameKey(state.gameKey.value) && (
+            <Button onClick={() => navigate('/board')}>Play</Button>
+          )}
         </Card>
       </div>
     </div>
