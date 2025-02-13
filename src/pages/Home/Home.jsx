@@ -5,6 +5,7 @@ import classes from './Home.module.css';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { t } from '../../utils/strings';
+import { validate } from '../../utils/games';
 
 const loginLogic = false;
 
@@ -13,7 +14,7 @@ const initialState = {
   gameKey: {
     placeholder: t('game_placeholder'),
     value: null,
-    error: t('error_5_characters'),
+    error: null,
   },
 };
 
@@ -22,7 +23,11 @@ const reducer = (state, action) => {
     case 'onChangeGameKey':
       return {
         ...state,
-        gameKey: { ...initialState.gameKey, value: action.value },
+        gameKey: {
+          ...initialState.gameKey,
+          value: action.value,
+          error: action.error,
+        },
       };
     case 'onChangeMasterKey':
       return {
@@ -39,14 +44,14 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleGameKeyChange = (key) => {
-    dispatch({ type: 'onChangeGameKey', value: key });
+    let error = null;
+    if (key?.length !== 5) error = t('error_5_characters');
+    else if (!validate(key)) error = t('error_key_invalid');
+    dispatch({ type: 'onChangeGameKey', value: key, error: error });
   };
   const validGameKey = (text) => {
-    // Validate length
     if (text?.length !== 5) return false;
-    // Validate if exists
-    // @todo
-    return true;
+    return validate(text);
   };
 
   return (
@@ -71,7 +76,7 @@ const Home = () => {
             value={state.gameKey.value}
             onChangeValue={handleGameKeyChange}
             validate={validGameKey}
-            errorText={state.gameKey.error}
+            error={state.gameKey.error}
           />
           {validGameKey(state.gameKey.value) && (
             <Button onClick={() => navigate('/board')}>Play</Button>

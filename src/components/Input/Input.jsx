@@ -1,25 +1,9 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { t } from '../../utils/strings';
 import classes from './Input.module.css';
 
-const Input = ({ value, onChangeValue, validate, errorText, ...props }) => {
-  const [currentValue, setValue] = useState(value);
-  const [error, setError] = useState('');
-
+const Input = ({ value, onChangeValue, error, ...props }) => {
   const handleOnChangeValue = (event) => {
-    let newValue = event.target.value;
-    setValue(newValue);
-    if (validated(newValue)) onChangeValue(newValue);
-  };
-
-  const validated = (text) => {
-    if (validate && !validate(text)) {
-      setError(errorText ?? t('error_general'));
-      return false;
-    }
-    setError(null);
-    return true;
+    onChangeValue(event.target.value);
   };
 
   return (
@@ -28,7 +12,7 @@ const Input = ({ value, onChangeValue, validate, errorText, ...props }) => {
         className={
           !error ? classes.input : [classes.input, classes.error].join(' ')
         }
-        value={currentValue}
+        value={value}
         onChange={handleOnChangeValue}
         {...props}
       />

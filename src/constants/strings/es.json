@@ -7,5 +7,6 @@
   "master_placeholder": "Escribe el PIN",
 
   "error_general": "Error",
-  "error_5_characters": "Debe tener 5 carácteres"
+  "error_5_characters": "Debe tener 5 carácteres",
+  "error_key_invalid": "Clave inválida"
 }
