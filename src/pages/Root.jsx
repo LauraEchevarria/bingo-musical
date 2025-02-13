@@ -4,7 +4,7 @@ import HeaderNav from '../components/Layout/HeaderNav/HeaderNav';
 import Text from '../components/Text/Text';
 
 const TITLES = {
-  '/': 'Homee',
+  '/': 'Home',
   '/board': 'Bingo Board',
   '/admin': 'Generate bingo',
   '/master': "Let's rock it!",
