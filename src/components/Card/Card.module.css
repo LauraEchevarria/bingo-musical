@@ -20,6 +20,6 @@
 
   &:hover {
     background-color: var(--gray-400);
-    color: var(--black);
+    color: var(--gray-900);
   }
 }

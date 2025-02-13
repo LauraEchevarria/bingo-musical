@@ -5,8 +5,17 @@
   gap: 40px;
 }
 
-.input {
-  &:hover {
-    color: var(--black);
+.card input {
+  color: var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+  &::placeholder {
+    color: var(--gray-200);
+  }
+}
+.card:hover input {
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-700);
+  &::placeholder {
+    color: var(--gray-500);
   }
 }

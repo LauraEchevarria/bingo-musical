@@ -70,10 +70,9 @@ const Home = () => {
         <Card color="gray-600" onClick={() => navigate('/master')}>
           Master game
         </Card>
-        <Card color="green">
+        <Card className={classes.card} color="green">
           Play your board
           <Input
-            className={classes.input}
             placeholder={state.gameKey.placeholder}
             value={state.gameKey.value}
             onChangeValue={handleGameKeyChange}
