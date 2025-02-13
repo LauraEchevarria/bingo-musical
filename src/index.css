@@ -24,13 +24,13 @@
 
   --green-500: #2ecc71;
 
-  --gray2-800: #3f3f3f;
-
   --blue-100: #d7e7e7;
   --blue-800: #566060;
   --blue-900: #334242;
 
+  --white: #fff;
   --black: #000;
+  --red: #bf2929;
 }
 
 body {

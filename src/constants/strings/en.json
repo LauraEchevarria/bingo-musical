@@ -1,4 +1,10 @@
 {
   "admin_connect_spotify": "Connect Spotify",
-  "admin_spotify": ""
+  "admin_spotify": "",
+  "game_placeholder": "Enter your PIN game",
+  "master_placeholder": "Enter the PIN game",
+
+  "error_general": "Error",
+  "error_5_characters": "Key should have 5 characters",
+  "error_key_invalid": "Key game invalid"
 }

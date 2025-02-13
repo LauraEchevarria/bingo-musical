@@ -1,9 +1,10 @@
 .box {
   border-radius: 20px;
-  width: 120px;
+  min-width: 150px;
   height: 150px; /* 1 1 2 3 5 8 13 21 */
   font-weight: bold;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -19,6 +20,6 @@
 
   &:hover {
     background-color: var(--gray-400);
-    color: var(--black);
+    color: var(--gray-900);
   }
 }
