@@ -4,3 +4,9 @@
   flex-flow: row wrap;
   gap: 40px;
 }
+
+.input {
+  &:hover {
+    color: var(--black);
+  }
+}

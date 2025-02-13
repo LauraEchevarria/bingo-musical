@@ -44,8 +44,9 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleGameKeyChange = (key) => {
-    let error = null;
-    if (key?.length !== 5) error = t('error_5_characters');
+    let error;
+    if (key?.length === 0) error = null;
+    else if (key?.length !== 5) error = t('error_5_characters');
     else if (!validate(key)) error = t('error_key_invalid');
     dispatch({ type: 'onChangeGameKey', value: key, error: error });
   };
@@ -72,6 +73,7 @@ const Home = () => {
         <Card color="green">
           Play your board
           <Input
+            className={classes.input}
             placeholder={state.gameKey.placeholder}
             value={state.gameKey.value}
             onChangeValue={handleGameKeyChange}

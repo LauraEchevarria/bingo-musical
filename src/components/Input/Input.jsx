@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types';
 import classes from './Input.module.css';
 
-const Input = ({ value, onChangeValue, error, ...props }) => {
+const Input = ({ value, onChangeValue, error, className, ...props }) => {
   const handleOnChangeValue = (event) => {
     onChangeValue(event.target.value);
+  };
+
+  const getClassNames = () => {
+    let classNames = [className, classes.input];
+    if (error) classNames.push(classes.error);
+    return classNames.join(' ');
   };
 
   return (
     <>
       <input
-        className={
-          !error ? classes.input : [classes.input, classes.error].join(' ')
-        }
+        className={getClassNames()}
         value={value}
         onChange={handleOnChangeValue}
         {...props}
