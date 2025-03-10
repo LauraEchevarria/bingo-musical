@@ -43,7 +43,7 @@ const Home = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const navigate = useNavigate();
 
-  const handleGameKeyChange = (key) => {
+  const onChangeGameKeyhandler = (key) => {
     let error;
     if (key?.length === 0) error = null;
     else if (key?.length !== 5) error = t('error_5_characters');
@@ -53,6 +53,11 @@ const Home = () => {
   const validGameKey = (text) => {
     if (text?.length !== 5) return false;
     return validate(text);
+  };
+
+  const onStartGameHandler = () => {
+    localStorage.setItem('gameKey', state.gameKey.value);
+    navigate('/board');
   };
 
   return (
@@ -75,12 +80,12 @@ const Home = () => {
           <Input
             placeholder={state.gameKey.placeholder}
             value={state.gameKey.value}
-            onChangeValue={handleGameKeyChange}
+            onChangeValue={onChangeGameKeyhandler}
             validate={validGameKey}
             error={state.gameKey.error}
           />
           {validGameKey(state.gameKey.value) && (
-            <Button onClick={() => navigate('/board')}>Play</Button>
+            <Button onClick={onStartGameHandler}>Play</Button>
           )}
         </Card>
       </div>

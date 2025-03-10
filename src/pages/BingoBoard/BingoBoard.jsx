@@ -53,7 +53,9 @@ const BingoBoard = () => {
 export default BingoBoard;
 
 export const loader = async () => {
-  let game_id = '12345'; // @todo GET id
+  const game_id = localStorage.getItem('gameKey');
+  console.log('game_id', game_id);
+  //let game_id = '12345'; // @todo GET id --
   let game = getGame(game_id);
   if (game?.length < 1) return { status: 400, message: 'Invalid game' };
 
