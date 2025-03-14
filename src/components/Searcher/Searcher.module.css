@@ -1,0 +1,28 @@
+.searcher {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input {
+  color: white;
+}
+
+.drop-down {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  z-index: 10;
+  color: black;
+  background-color: white;
+  padding: 8px 12px;
+}
+
+.drop-down li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
+}
