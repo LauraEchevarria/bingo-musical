@@ -1,6 +1,7 @@
 {
   "admin_connect_spotify": "Connect Spotify",
   "admin_spotify": "",
+  "start_spotify": "Create game and open Spotify list",
   "game_placeholder": "Enter your PIN game",
   "master_placeholder": "Enter the PIN game",
 

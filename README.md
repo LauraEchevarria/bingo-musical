@@ -1,3 +1,5 @@
+This page is still under development. It is a personal project to practice React skills and explore the latest updates in this ecosystem.
+
 # Features
 
 ## Master game
@@ -18,4 +20,4 @@ Still missing:
 - Admin a playlist
 - Admin a game
 - Database
-- Cache user data (game && bingo board)
+- Game board --> change size definition as values per line (not total)

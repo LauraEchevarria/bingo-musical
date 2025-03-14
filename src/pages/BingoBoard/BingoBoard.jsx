@@ -54,12 +54,12 @@ export default BingoBoard;
 
 export const loader = async () => {
   const game_id = localStorage.getItem('gameKey');
-  console.log('game_id', game_id);
-  //let game_id = '12345'; // @todo GET id --
+  if (!game_id || game_id === '') return { status: 400, message: '' };
+
   let game = getGame(game_id);
   if (game?.length < 1) return { status: 400, message: 'Invalid game' };
 
-  return getPlaylist(game.list_id)
+  return getPlaylist(game?.list_id)
     .then((res) => {
       let songs = res.tracks?.items.map((el, key) => {
         return { id: key, name: el.track?.name };
