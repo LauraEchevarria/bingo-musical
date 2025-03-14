@@ -33,3 +33,25 @@ export const getPlaylist = (id) => {
       .catch((err) => reject(err));
   });
 };
+
+export const searchPlaylist = (text, type = 'playlist') => {
+  if (!text.trim())
+    return new Promise((resolve, reject) =>
+      reject('empty text on search a playlist'),
+    );
+  let url = `${SPOTIFY_URL}/search?q=${text}&type=${type}`;
+  return new Promise((resolve, reject) => {
+    auth()
+      .then((token) => {
+        if (!token) throw new Error('No token found');
+        return fetch(url, {
+          method: 'get',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      })
+      .then((res) => resolve(res.json()))
+      .catch((err) => reject(err));
+  });
+};
