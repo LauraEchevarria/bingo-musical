@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import classes from './Input.module.css';
 
-const Input = ({ value, onChangeValue, error, className, ...props }) => {
+const Input = (props) => {
+  let { value, onChangeValue, error, className } = props;
   const handleOnChangeValue = (event) => {
     onChangeValue(event.target.value);
   };
